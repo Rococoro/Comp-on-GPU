@@ -4,7 +4,7 @@
 
 #ifndef _MURMURHASH2_H_
 #define _MURMURHASH2_H_
- 
+
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros
 
