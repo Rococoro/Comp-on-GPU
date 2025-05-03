@@ -1,4 +1,4 @@
- 
+
 #include "MurmurHash2.h"
 
 __device__ __forceinline__
