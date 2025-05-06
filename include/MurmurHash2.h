@@ -8,7 +8,7 @@
 #if defined(__CUDA_ARCH__)
   #define LDG_U64(p) __ldg((const uint64_t*)(p))
 #else
-  #define LDG_U64(p) (*(const uint64_t*)(p))   // CPU 빌드 fallback
+  #define LDG_U64(p) (*(const uint64_t*)(p))
 #endif
 
 //-----------------------------------------------------------------------------
