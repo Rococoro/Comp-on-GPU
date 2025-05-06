@@ -5,6 +5,12 @@
 #ifndef _MURMURHASH2_H_
 #define _MURMURHASH2_H_
 
+#if defined(__CUDA_ARCH__)
+  #define LDG_U64(p) __ldg((const uint64_t*)(p))
+#else
+  #define LDG_U64(p) (*(const uint64_t*)(p))   // CPU 빌드 fallback
+#endif
+
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros
 
@@ -112,7 +118,7 @@ uint32_t MurmurHash2 ( const void * key, int len, uint32_t seed )
 
 // 64-bit hash for 64-bit platforms
 
-uint64_t MurmurHash64A ( const void * key, int len, uint64_t seed )
+inline __device__ uint64_t MurmurHash64A ( const void * key, int len, uint64_t seed )
 {
   const uint64_t m = BIG_CONSTANT(0xc6a4a7935bd1e995);
   const int r = 47;
