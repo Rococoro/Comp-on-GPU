@@ -68,6 +68,7 @@ inline __host__ __device__
 
 #endif // !defined(_MSC_VER)
 
+__global__ void hash_kernel(const char* d_in, uint64_t* d_out, size_t blk_sz, size_t N);
 //-----------------------------------------------------------------------------
 
 uint32_t MurmurHash2(const void *key, int len, uint32_t seed)
