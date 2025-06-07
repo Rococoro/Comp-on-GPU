@@ -1,5 +1,4 @@
 #pragma once
-#include <cuda_runtime.h>
 #include <cstddef>  // size_t
 #include <cstdint>  // int32_t
 
@@ -14,7 +13,7 @@
  */
 
 __global__
-void gather_ptrs(const int32_t* __restrict__ idx,
+void gather_ptrs(const int32_t* __restrict__ deltaIDX,
     const char*   __restrict__ base,
     std::size_t blkSz,
     char** __restrict__ outPtrs,
