@@ -1,33 +1,61 @@
+nvidia@tegra-ubuntu:~/Downloads/nvcomp/nvcomp/build$ ./cmake.sh 
+Release build.
+-- Finding CUB
+Build nvCOMP version 2.2.0
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/nvidia/Downloads/nvcomp/nvcomp/build
+Release build.
+-- Finding CUB
+Build nvCOMP version 2.2.0
+CMake Error: File /home/nvidia/Downloads/nvcomp/nvcomp/cmake/nvcomp-config.cmake.in does not exist.
+CMake Error at /usr/local/share/cmake-3.31/Modules/CMakePackageConfigHelpers.cmake:507 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:171 (configure_package_config_file)
 
--- The CUDA compiler identification is NVIDIA 11.4.315 with host compiler GNU 9.4.0
--- Detecting CUDA compiler ABI info
--- Detecting CUDA compiler ABI info - done
--- Check for working CUDA compiler: /usr/local/cuda-11/bin/nvcc - skipped
--- Detecting CUDA compile features
--- Detecting CUDA compile features - done
--- Found CUDAToolkit: /usr/local/cuda-11/targets/aarch64-linux/include (found version "11.4.315")
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - found
--- Found Threads: TRUE
-CMake Error at CMakeLists.txt:18 (find_package):
-  By not providing "Findnvcomp.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "nvcomp", but
-  CMake did not find one.
 
-  Could not find a package configuration file provided by "nvcomp" (requested
-  version 3.0.3) with any of the following names:
-
-    nvcompConfig.cmake
-    nvcomp-config.cmake
-
-  Add the installation prefix of "nvcomp" to CMAKE_PREFIX_PATH or set
-  "nvcomp_DIR" to a directory containing one of the above files.  If "nvcomp"
-  provides a separate development package or SDK, be sure it has been
-  installed.
+CMake Error: File /home/nvidia/Downloads/nvcomp/nvcomp/cmake/nvcomp-config.cmake.in does not exist.
+CMake Error at /usr/local/share/cmake-3.31/Modules/CMakePackageConfigHelpers.cmake:507 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:181 (configure_package_config_file)
 
 
 -- Configuring incomplete, errors occurred!
+make: *** [Makefile:201: cmake_check_build_system] Error 1
+[  3%] Building CUDA object src/CMakeFiles/nvcomp.dir/BitPackGPU.cu.o
+[  7%] Building CUDA object src/CMakeFiles/nvcomp.dir/CudaUtils.cu.o
+[ 10%] Building CUDA object src/CMakeFiles/nvcomp.dir/DeltaGPU.cu.o
+[ 14%] Building CUDA object src/CMakeFiles/nvcomp.dir/RunLengthEncodeGPU.cu.o
+^Cnvcc error   : 'cicc' died due to signal 2 
+make[2]: *** [src/CMakeFiles/nvcomp.dir/build.make:125: src/CMakeFiles/nvcomp.dir/RunLengthEncodeGPU.cu.o] Interrupt
+make[1]: *** [CMakeFiles/Makefile2:106: src/CMakeFiles/nvcomp.dir/all] Interrupt
+make: *** [Makefile:136: all] Interrupt
+nvidia@tegra-ubuntu:~/Downloads/nvcomp/nvcomp/build$ ./cmake.sh 
+Release build.
+-- Finding CUB
+Build nvCOMP version 2.2.0
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/nvidia/Downloads/nvcomp/nvcomp/build
+Release build.
+-- Finding CUB
+Build nvCOMP version 2.2.0
+CMake Error: File /home/nvidia/Downloads/nvcomp/nvcomp/cmake/nvcomp-config.cmake.in does not exist.
+CMake Error at /usr/local/share/cmake-3.31/Modules/CMakePackageConfigHelpers.cmake:507 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:171 (configure_package_config_file)
+
+
+CMake Error: File /home/nvidia/Downloads/nvcomp/nvcomp/cmake/nvcomp-config.cmake.in does not exist.
+CMake Error at /usr/local/share/cmake-3.31/Modules/CMakePackageConfigHelpers.cmake:507 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:181 (configure_package_config_file)
+
+
+-- Configuring incomplete, errors occurred!
+make: *** [Makefile:201: cmake_check_build_system] Error 1
+[  3%] Building CUDA object src/CMakeFiles/nvcomp.dir/RunLengthEncodeGPU.cu.o
