@@ -1,19 +1,37 @@
-nvidia@tegra-ubuntu:~/src/nvcomp/build$ cmake ..   -DCMAKE_BUILD_TYPE=Release   -DNVCOMP_ENABLE_ZSTD=OFF   -DNVCOMP_ENABLE_GDEFLATE=ON   -DNVCOMP_ENABLE_CASCADED=OFF   -DNVCOMP_ENABLE_LZ4=OFF   -DNVCOMP_ENABLE_BITCOMP=OFF   -DNVCOMP_ENABLE_SNAPPY=OFF   -DNVCOMP_ENABLE_TESTS=OFF   -DNVCOMP_ENABLE_EXAMPLES=OFF   -DCMAKE_INSTALL_PREFIX=/opt/nvcomp   -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11/bin/nvcc   -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11   -DCMAKE_CUDA_ARCHITECTURES=87
+nvidia@tegra-ubuntu:~/src/nvcomp/build$ cmake .. \
+>   -DCMAKE_DISABLE_FIND_PACKAGE_nvcomp=ON\
+>   -DCMAKE_BUILD_TYPE=Release \
+>   -DNVCOMP_ENABLE_ZSTD=OFF \
+>   -DNVCOMP_ENABLE_GDEFLATE=ON \
+>   -DNVCOMP_ENABLE_CASCADED=OFF \
+>   -DNVCOMP_ENABLE_LZ4=OFF \
+>   -DNVCOMP_ENABLE_BITCOMP=OFF \
+>   -DNVCOMP_ENABLE_SNAPPY=OFF \
+>   -DNVCOMP_ENABLE_TESTS=OFF \
+>   -DNVCOMP_ENABLE_EXAMPLES=OFF \
+>   -DCMAKE_INSTALL_PREFIX=/opt/nvcomp \
+>   -DCMAKE_CUDA_COMPILER=/usr/local/cuda-11/bin/nvcc \
+>   -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11 \
+>   -DCMAKE_CUDA_ARCHITECTURES=87
 CMake Error at CMakeLists.txt:18 (find_package):
-  By not providing "Findnvcomp.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "nvcomp", but
-  CMake did not find one.
+  find_package for module nvcomp called with REQUIRED, but
+  CMAKE_DISABLE_FIND_PACKAGE_nvcomp is enabled.  A REQUIRED package cannot be
+  disabled.
 
-  Could not find a package configuration file provided by "nvcomp" (requested
-  version 3.0.3) with any of the following names:
 
-    nvcompConfig.cmake
-    nvcomp-config.cmake
+Release build.
+-- Finding CUB
+CMake Warning at examples/CMakeLists.txt:26 (message):
+  Skipping building Checksum example, as boost library not found.
 
-  Add the installation prefix of "nvcomp" to CMAKE_PREFIX_PATH or set
-  "nvcomp_DIR" to a directory containing one of the above files.  If "nvcomp"
-  provides a separate development package or SDK, be sure it has been
-  installed.
+
+CMake Warning at examples/CMakeLists.txt:43 (message):
+  Skipping building LZ4 CPU example, as no LZ4 library was found.
+
+
+CMake Warning at examples/CMakeLists.txt:82 (message):
+  Skipping building Deflate CPU example, as zlib or libdeflate library not
+  found.
 
 
 -- Configuring incomplete, errors occurred!
