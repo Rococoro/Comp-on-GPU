@@ -1,12 +1,22 @@
+nvidia@tegra-ubuntu:~/Downloads/zfp/build$ cmake ..
 -- Configuring done (0.0s)
-CMake Error at CMakeLists.txt:12 (target_link_libraries):
-  Target "zfp_test" links to:
+-- Generating done (0.0s)
+-- Build files have been written to: /home/nvidia/Downloads/zfp/build
+nvidia@tegra-ubuntu:~/Downloads/zfp/build$ make -j$(nproc)
+[ 50%] Building CUDA object CMakeFiles/zfp_test.dir/TEST.cu.o
+/home/nvidia/Downloads/zfp/TEST.cu(12): warning: variable "bytes" was declared but never referenced
 
-    zfp::zfpCuda
-
-  but the target was not found.  Possible reasons include:
-
-    * There is a typo in the target name.
-    * A find_package call is missing for an IMPORTED target.
-    * An ALIAS target is missing.
-
+[100%] Linking CUDA executable zfp_test
+/usr/bin/ld: CMakeFiles/zfp_test.dir/TEST.cu.o: in function `main':
+tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x70): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x74): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xac): undefined reference to `d_compBuf'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xb0): undefined reference to `d_compBuf'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xb8): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xbc): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x14c): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x150): undefined reference to `compBytes'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/zfp_test.dir/build.make:103: zfp_test] Error 1
+make[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/zfp_test.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
