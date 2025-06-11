@@ -1,0 +1,23 @@
+TEST.cu(12): warning: variable "bytes" was declared but never referenced
+
+/usr/bin/ld: /tmp/tmpxft_00001eaa_00000000-11_TEST.o: in function `main':
+tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x70): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x74): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xac): undefined reference to `d_compBuf'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xb0): undefined reference to `d_compBuf'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xb8): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xbc): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x110): undefined reference to `zfp_field_3d'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x11c): undefined reference to `zfp_stream_open'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x12c): undefined reference to `zfp_stream_set_execution'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x13c): undefined reference to `zfp_stream_set_accuracy'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x14c): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x150): undefined reference to `compBytes'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x160): undefined reference to `stream_open'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x170): undefined reference to `zfp_stream_set_bit_stream'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x178): undefined reference to `zfp_stream_rewind'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x184): undefined reference to `zfp_decompress'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1e8): undefined reference to `zfp_field_free'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1f0): undefined reference to `zfp_stream_close'
+/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1f8): undefined reference to `stream_close'
+collect2: error: ld returned 1 exit status
