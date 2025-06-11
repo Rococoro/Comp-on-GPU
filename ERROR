@@ -1,23 +1,35 @@
-TEST.cu(12): warning: variable "bytes" was declared but never referenced
+CMake Warning (dev) at CMakeLists.txt:1 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
 
-/usr/bin/ld: /tmp/tmpxft_00001eaa_00000000-11_TEST.o: in function `main':
-tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x70): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x74): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xac): undefined reference to `d_compBuf'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xb0): undefined reference to `d_compBuf'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xb8): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0xbc): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x110): undefined reference to `zfp_field_3d'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x11c): undefined reference to `zfp_stream_open'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x12c): undefined reference to `zfp_stream_set_execution'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x13c): undefined reference to `zfp_stream_set_accuracy'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x14c): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x150): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x160): undefined reference to `stream_open'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x170): undefined reference to `zfp_stream_set_bit_stream'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x178): undefined reference to `zfp_stream_rewind'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x184): undefined reference to `zfp_decompress'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1e8): undefined reference to `zfp_field_free'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1f0): undefined reference to `zfp_stream_close'
-/usr/bin/ld: tmpxft_00001eaa_00000000-6_TEST.cudafe1.cpp:(.text+0x1f8): undefined reference to `stream_close'
-collect2: error: ld returned 1 exit status
+m-- The CUDA compiler identification is NVIDIA 11.4.315 with host compiler GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda-11/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found zfp: /opt/zfp/lib/cmake/zfp/zfp-config.cmake (found version "1.0.1")
+CMake Error at CMakeLists.txt:11 (target_link_libraries):
+  Cannot specify link libraries for target "zfp" which is not built by this
+  project.
+
+
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.31)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring incomplete, errors occurred!
