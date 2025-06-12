@@ -1,22 +1,25 @@
-nvidia@tegra-ubuntu:~/Downloads/zfp/build$ cmake ..
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /home/nvidia/Downloads/zfp/build
-nvidia@tegra-ubuntu:~/Downloads/zfp/build$ make -j$(nproc)
-[ 50%] Building CUDA object CMakeFiles/zfp_test.dir/TEST.cu.o
-/home/nvidia/Downloads/zfp/TEST.cu(12): warning: variable "bytes" was declared but never referenced
-
-[100%] Linking CUDA executable zfp_test
-/usr/bin/ld: CMakeFiles/zfp_test.dir/TEST.cu.o: in function `main':
-tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x70): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x74): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xac): undefined reference to `d_compBuf'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xb0): undefined reference to `d_compBuf'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xb8): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0xbc): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x14c): undefined reference to `compBytes'
-/usr/bin/ld: tmpxft_000022ad_00000000-6_TEST.cudafe1.cpp:(.text+0x150): undefined reference to `compBytes'
+/usr/bin/ld: /tmp/tmpxft_00001f24_00000000-11_TEST.o: in function `main':
+tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x1d0): undefined reference to `zfp_field_3d'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x1dc): undefined reference to `zfp_stream_open'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x1ec): undefined reference to `zfp_stream_set_execution'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x1fc): undefined reference to `zfp_stream_set_accuracy'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x208): undefined reference to `zfp_stream_maximum_size'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x274): undefined reference to `stream_open'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x284): undefined reference to `zfp_stream_set_bit_stream'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x28c): undefined reference to `zfp_stream_rewind'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x298): undefined reference to `zfp_compress'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x424): undefined reference to `zfp_field_3d'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x430): undefined reference to `zfp_stream_open'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x440): undefined reference to `zfp_stream_set_execution'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x450): undefined reference to `zfp_stream_set_accuracy'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x460): undefined reference to `stream_open'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x470): undefined reference to `zfp_stream_set_bit_stream'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x478): undefined reference to `zfp_stream_rewind'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x484): undefined reference to `zfp_decompress'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x53c): undefined reference to `stream_close'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x544): undefined reference to `stream_close'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x54c): undefined reference to `zfp_stream_close'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x554): undefined reference to `zfp_stream_close'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x55c): undefined reference to `zfp_field_free'
+/usr/bin/ld: tmpxft_00001f24_00000000-6_TEST.cudafe1.cpp:(.text+0x564): undefined reference to `zfp_field_free'
 collect2: error: ld returned 1 exit status
-make[2]: *** [CMakeFiles/zfp_test.dir/build.make:103: zfp_test] Error 1
-make[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/zfp_test.dir/all] Error 2
-make: *** [Makefile:91: all] Error 2
