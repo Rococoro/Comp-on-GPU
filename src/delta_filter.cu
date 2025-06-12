@@ -1,4 +1,3 @@
-#include "delta_filter.cuh"
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/copy.h>
 
