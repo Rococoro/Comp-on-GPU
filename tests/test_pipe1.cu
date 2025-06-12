@@ -2,9 +2,7 @@
 #include "zstd.h"
 #include "nvcomp/zstd.h"
 
-#include "MurmurHash2.cuh"
-#include "diff_kernel.cuh"
-#include "delta_filter.cuh"
+#include "hash_kernel.cuh"
 #include "gather_kernel.cuh"
 
 #include <iomanip>
