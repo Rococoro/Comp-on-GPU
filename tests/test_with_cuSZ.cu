@@ -134,6 +134,7 @@ int main(int argc, char** argv)
     
         h_compPtr[k] = out;
         d_compPtr_device[k] = out;
+        h_outSz[k] = outLen;
     }
     cudaDeviceSynchronize();
 
@@ -143,9 +144,6 @@ int main(int argc, char** argv)
     // 7‑1 헤더 플래그 host 복사
     std::vector<uint8_t> h_flag(N);
     cudaMemcpy(h_flag.data(), d_flag, N, cudaMemcpyDeviceToHost);
-    
-    // 7‑2 압축 결과 블록을 Host 메모리로 모으기
-    std::vector<size_t> h_outSz(deltaCnt);
     
     size_t delta_bytes = std::accumulate(h_outSz.begin(), h_outSz.end(), 0ull);
     
@@ -162,8 +160,8 @@ int main(int argc, char** argv)
     cudaMalloc(&d_recon, total * sizeof(float));
     
     for (size_t i = 0; i < deltaCnt; ++i) {
-        size_t blkIdx   = deltaIdx[i];
-        uint8_t* inPtr  = d_compPtr[i];
+        size_t blkIdx   = h_delta[i];
+        uint8_t* inPtr  = h_compPtr[i];
         size_t   inLen  = h_outSz[i];
         float*   dst    = d_recon + blkIdx * BLK;
     
