@@ -10,12 +10,14 @@
 ########################
 CUDA_PATH ?= /usr/local/cuda
 NVCC      := $(CUDA_PATH)/bin/nvcc
-ARCH      ?= sm_80           # 변경 시: make ARCH=sm_86 …
+ARCH      ?= sm_75           # 변경 시: make ARCH=sm_86 …
 
-CFLAGS := -O3 -std=c++14 \
+CFLAGS := -O3 -std=c++17 \
           -gencode arch=compute_$(ARCH:sm_%=%),code=sm_$(ARCH:sm_%=%) \
           -Xptxas=-dlcm=ca,-maxrregcount=64
-INC    := -Iinclude
+NVCOMP_DIR ?= /usr/include/nvcomp
+
+INC    := -Iinclude -I$(NVCOMP_DIR)
 LIBS   := -lnvcomp -lzstd
 
 ########################
@@ -24,7 +26,7 @@ LIBS   := -lnvcomp -lzstd
 SRC   := $(wildcard src/*.cu)
 OBJ   := $(patsubst src/%.cu,build/%.o,$(SRC))
 
-TEST_SRC := $(wildcard tests/*.cu)
+TEST_SRC := tests/test_files.cu tests/test_pipe1.cu
 TEST_EXE := $(patsubst tests/%.cu,bin/%,$(TEST_SRC))
 
 ########################

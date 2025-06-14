@@ -1,10 +1,6 @@
+#include "delta_filter.cuh"
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/copy.h>
-#include <thrust/device_vector.h>      // thrust::device_vector
-#include <thrust/device_ptr.h>         // thrust::device_pointer_cast
-#include <thrust/execution_policy.h>   // thrust::cuda::par
-#include <thrust/functional.h>         // thrust::identity
-
 
 namespace dz
 {

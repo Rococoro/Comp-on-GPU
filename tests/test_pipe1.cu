@@ -2,7 +2,9 @@
 #include "zstd.h"
 #include "nvcomp/zstd.h"
 
-#include "hash_kernel.cuh"
+#include "MurmurHash2.cuh"
+#include "diff_kernel.cuh"
+#include "delta_filter.cuh"
 #include "gather_kernel.cuh"
 
 #include <iomanip>
@@ -12,7 +14,7 @@
 #include <random>
 #include <cassert>
 #include <iostream>
-
+#include <algorithm>
 //---------------------------------------------------------
 // 전역 설정
 //---------------------------------------------------------

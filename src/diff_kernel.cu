@@ -1,21 +1,13 @@
-#include <cuda_runtime.h>
-#include <cstdint>
+#include "diff_kernel.cuh"
 
 __global__
-void diff_kernel(const uint64_t* __restrict__ prev,
-                 const uint64_t* __restrict__ curr,
-                 uint8_t*       __restrict__ flag,
-                 size_t N)
+void diff_kernel(const uint64_t* __restrict__ d_prev,
+    const uint64_t* __restrict__ d_curr,
+    uint8_t* __restrict__ d_flag,
+    size_t N)
 {
-    size_t idx = blockIdx.x * blockDim.x + threadIdx.x;
-    size_t stride = gridDim.x * blockDim.x;
+    size_t i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i >= N) return;
 
-    while (idx < N)
-    {
-        uint64_t p = __ldg(prev + idx);
-        uint64_t c = __ldg(curr + idx);
-
-        flag[idx] = (p == c) ? 0u : 1u;
-        idx += stride;
-    }
+    d_flag[i] = (d_prev[i] == d_curr[i]) ? 0 : 1;
 }
