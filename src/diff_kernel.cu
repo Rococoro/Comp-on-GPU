@@ -1,4 +1,5 @@
 #include <cuda_runtime.h>
+#include <cstdint>
 
 __global__
 void diff_kernel(const uint64_t* __restrict__ prev,
